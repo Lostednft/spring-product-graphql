@@ -1,0 +1,11 @@
+type Product{
+    id:String
+    name:String
+    categoria:String
+    price:Float
+    stock:Int
+}
+
+type Query{
+    getAllProduct:[Product]
+}
