@@ -8,4 +8,5 @@ type Product{
 
 type Query{
     getAllProduct:[Product]
+    productByName(name:String):Product
 }

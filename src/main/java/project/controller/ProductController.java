@@ -11,11 +11,19 @@ import java.util.List;
 @Controller
 public class ProductController {
 
-    @Autowired
-    private ProductRepository productRepository;
+    private final ProductRepository productRepository;
+
+    public ProductController(ProductRepository productRepository) {
+        this.productRepository = productRepository;
+    }
 
     @QueryMapping
     public List<Product> getAllProduct(){
         return productRepository.findAll();
+    }
+
+    @QueryMapping
+    public Product productByName(String name){
+        return productRepository.findByName(name);
     }
 }
