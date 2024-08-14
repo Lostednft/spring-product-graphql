@@ -1,14 +1,7 @@
 type Product{
     id:String!
     name:String
-    categoria:String
-    price:Float
-    stock:Int
-}
-
-type inputProduct{
-    name:String
-    categoria:String
+    category:String
     price:Float
     stock:Int
 }
@@ -19,10 +12,12 @@ type Query{
 }
 
 type Mutation {
-    createProduct(
-        name:String,
-        categoria:String,
-        price:Float,
-        stock:Int)
-    :Product
+    createProduct(Product:ProductDTO!):Product
+}
+
+input ProductDTO{
+    name:String
+    category:String
+    price:Float
+    stock:Int
 }

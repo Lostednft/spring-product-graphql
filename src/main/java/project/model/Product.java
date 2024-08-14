@@ -18,15 +18,22 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
     private String name;
-    private String categoria;
+    private String category;
     private Float price;
     private Integer stock;
 
 
-    public Product(String name, String categoria, Float price, Integer stock) {
+    public Product(String name, String category, Float price, Integer stock) {
         this.name = name;
-        this.categoria = categoria;
+        this.category = category;
         this.price = price;
         this.stock = stock;
     }
+    public Product(ProductDTO productDTO) {
+        this.name = productDTO.name();
+        this.category = productDTO.category();
+        this.price = productDTO.price();
+        this.stock = productDTO.stock();
+    }
+
 }
