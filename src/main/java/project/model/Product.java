@@ -21,19 +21,23 @@ public class Product {
     private String category;
     private Float price;
     private Integer stock;
+    @ManyToOne(fetch = FetchType.EAGER)
+    private User user;
 
-
-    public Product(String name, String category, Float price, Integer stock) {
+    public Product(String name, String category, Float price, Integer stock, User user) {
         this.name = name;
         this.category = category;
         this.price = price;
         this.stock = stock;
+        this.user = user;
     }
+
     public Product(ProductDTO productDTO) {
         this.name = productDTO.name();
         this.category = productDTO.category();
         this.price = productDTO.price();
         this.stock = productDTO.stock();
+        this.user = productDTO.user();
     }
 
 }

@@ -4,6 +4,13 @@ type Product{
     category:String
     price:Float
     stock:Int
+    user:User
+}
+
+type User{
+    id:Int
+    name:String
+    estado:String
 }
 
 type Query{
@@ -22,4 +29,5 @@ input ProductDTO{
     category:String
     price:Float
     stock:Int
+    user:User
 }
