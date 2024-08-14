@@ -13,6 +13,7 @@ type Query{
 
 type Mutation {
     createProduct(Product:ProductDTO!):Product
+    deleteProduct(id:String):String
 }
 
 input ProductDTO{

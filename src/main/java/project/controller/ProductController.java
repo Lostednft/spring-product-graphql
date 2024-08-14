@@ -3,6 +3,8 @@ package project.controller;
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.MutationMapping;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import project.model.Product;
 import project.model.ProductDTO;
@@ -29,8 +31,17 @@ public class ProductController {
         return productRepository.findByName(name);
     }
 
+    //@Argument tem quer o msm nome da Classe
     @MutationMapping
     public Product createProduct(@Argument("Product") ProductDTO productDTO){
         return productRepository.save(new Product(productDTO));
     }
+
+    @MutationMapping
+    public String deleteProduct(@Argument("id") String idProduct){
+        Product productById = productRepository.findById(idProduct).orElseThrow(() -> new RuntimeException("Esse ID não existe"));
+        productRepository.delete(productById);
+        return "Deletado com Sucesso!";
+    }
+
 }
