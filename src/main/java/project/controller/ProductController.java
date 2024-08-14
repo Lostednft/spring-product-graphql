@@ -37,6 +37,7 @@ public class ProductController {
         return productRepository.save(new Product(productDTO));
     }
 
+    //@Argument tem quer o msm nome do que o atributo "id"
     @MutationMapping
     public String deleteProduct(@Argument("id") String idProduct){
         Product productById = productRepository.findById(idProduct).orElseThrow(() -> new RuntimeException("Esse ID não existe"));
@@ -44,4 +45,14 @@ public class ProductController {
         return "Deletado com Sucesso!";
     }
 
+    @MutationMapping
+    public Product updateProduct(@Argument String id, @Argument ProductDTO Product){
+
+        if(productRepository.findById(id).isEmpty())
+            throw new RuntimeException("Esse PRODUTO não existe");
+
+        Product newProduct = new Product(Product);
+        newProduct.setId(id);
+        return productRepository.save(newProduct);
+    }
 }
