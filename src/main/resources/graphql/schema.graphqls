@@ -8,7 +8,7 @@ type Product{
 }
 
 type User{
-    id:Int
+    id:Int!
     name:String
     estado:String
 }
@@ -24,10 +24,14 @@ type Mutation {
     updateProduct(id: String!, Product: ProductDTO!):Product
 }
 
+input UserInput {
+    id: ID!
+}
+
 input ProductDTO{
     name:String
     category:String
     price:Float
     stock:Int
-    user:User
+    user:UserInput
 }

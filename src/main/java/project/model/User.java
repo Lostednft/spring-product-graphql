@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Entity
 @Table(name = "Users_tb")
 @Getter
@@ -18,6 +20,8 @@ public class User {
     private Long id;
     private String name;
     private String estado;
+    @OneToMany
+    private List<Product> product;
 
     public User(String name, String estado) {
         this.name = name;
