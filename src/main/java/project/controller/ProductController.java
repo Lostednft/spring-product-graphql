@@ -1,6 +1,6 @@
 package project.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.stereotype.Controller;
 import project.model.Product;
@@ -23,7 +23,7 @@ public class ProductController {
     }
 
     @QueryMapping
-    public Product productByName(String name){
+    public Product productByName(@Argument("name") String name){
         return productRepository.findByName(name);
     }
 }

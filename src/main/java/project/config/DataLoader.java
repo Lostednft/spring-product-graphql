@@ -6,6 +6,7 @@ import project.model.Product;
 import project.repository.ProductRepository;
 
 import java.util.List;
+import java.util.UUID;
 
 @Component
 public class DataLoader implements CommandLineRunner {
@@ -20,12 +21,12 @@ public class DataLoader implements CommandLineRunner {
     public void run(String... args) throws Exception {
 
         List<Product> productList = List.of(
-                new Product("Laptop", "Electronics", 74999.99f, 50),
-                new Product("Smartphone", "Electronics", 39999.99f, 100),
-                new Product("Office Chair", "Furniture", 7999.99f, 200),
-                new Product("Notebook", "Stationery", 99.99f, 500),
-                new Product("Desk Lamp", "Furniture", 1999.99f, 150),
-                new Product("Water Bottle", "Accessories", 499.99f, 300));
+                new Product(0L, "Laptop", "Electronics", 74999.99f, 50),
+                new Product(1L,"Smartphone", "Electronics", 39999.99f, 100),
+                new Product(2L,"Office Chair", "Furniture", 7999.99f, 200),
+                new Product(3L,"Notebook", "Stationery", 99.99f, 500),
+                new Product(4L,"Desk Lamp", "Furniture", 1999.99f, 150),
+                new Product(5L,"Water Bottle", "Accessories", 499.99f, 300));
 
         productRepository.saveAll(productList);
     }

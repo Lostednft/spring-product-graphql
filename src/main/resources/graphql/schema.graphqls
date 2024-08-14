@@ -1,5 +1,5 @@
 type Product{
-    id:String
+    id:Int
     name:String
     categoria:String
     price:Float
@@ -8,5 +8,5 @@ type Product{
 
 type Query{
     getAllProduct:[Product]
-    productByName(name:String):Product
+    productByName(name:String!):Product
 }
