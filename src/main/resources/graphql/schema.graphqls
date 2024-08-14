@@ -1,5 +1,12 @@
 type Product{
-    id:Int
+    id:String!
+    name:String
+    categoria:String
+    price:Float
+    stock:Int
+}
+
+type inputProduct{
     name:String
     categoria:String
     price:Float
@@ -8,5 +15,14 @@ type Product{
 
 type Query{
     getAllProduct:[Product]
-    productByName(name:String!):Product
+    productByName(name:String!):[Product]
+}
+
+type Mutation {
+    createProduct(
+        name:String,
+        categoria:String,
+        price:Float,
+        stock:Int)
+    :Product
 }

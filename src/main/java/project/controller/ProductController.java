@@ -1,6 +1,7 @@
 package project.controller;
 
 import org.springframework.graphql.data.method.annotation.Argument;
+import org.springframework.graphql.data.method.annotation.MutationMapping;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.stereotype.Controller;
 import project.model.Product;
@@ -23,7 +24,7 @@ public class ProductController {
     }
 
     @QueryMapping
-    public Product productByName(@Argument("name") String name){
+    public List<Product> productByName(@Argument("name") String name){
         return productRepository.findByName(name);
     }
 }

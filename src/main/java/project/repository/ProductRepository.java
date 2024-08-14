@@ -3,7 +3,9 @@ package project.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import project.model.Product;
 
-public interface ProductRepository extends JpaRepository<Product, Long> {
+import java.util.List;
 
-    public Product findByName(String name);
+public interface ProductRepository extends JpaRepository<Product, String> {
+
+    public List<Product> findByName(String name);
 }
