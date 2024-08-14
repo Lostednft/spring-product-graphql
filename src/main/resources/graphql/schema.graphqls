@@ -29,9 +29,9 @@ input UserInput {
 }
 
 input ProductDTO{
-    name:String
-    category:String
-    price:Float
-    stock:Int
-    user:UserInput
+    name:String!
+    category:String!
+    price:Float!
+    stock:Int!
+    user:UserInput!
 }

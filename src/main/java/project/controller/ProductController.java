@@ -43,6 +43,7 @@ public class ProductController {
         return "Deletado com Sucesso!";
     }
 
+    //@Argument nome ja é igual ao do parâmetro, por isso não foi necessário.
     @MutationMapping
     public Product updateProduct(@Argument String id, @Argument ProductDTO Product){
 

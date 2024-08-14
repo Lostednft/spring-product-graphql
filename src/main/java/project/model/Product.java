@@ -21,7 +21,7 @@ public class Product {
     private String category;
     private Float price;
     private Integer stock;
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne
     private User user;
 
     public Product(String name, String category, Float price, Integer stock, User user) {
